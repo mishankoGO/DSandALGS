@@ -1,19 +1,20 @@
 package main
 
 import (
-	"DSandALGS/JunminLeeCourse/DataStructures/linkedLists"
+	"DSandALGS/JunminLeeCourse/DataStructures/queues"
 	"fmt"
 )
 
 func main() {
-	mylist := linkedLists.LinkedList{}
-	node1 := &linkedLists.Node{Data: 48}
-	node2 := &linkedLists.Node{Data: 18}
-	node3 := &linkedLists.Node{Data: 68}
+	s := queues.Queue{}
+	fmt.Println(s)
 
-	mylist.Prepend(node1)
-	mylist.Prepend(node2)
-	mylist.Prepend(node3)
+	s.Enqueue(12)
+	s.Enqueue(20)
+	s.Enqueue(18)
+	fmt.Println(s)
 
-	fmt.Println(mylist)
+	fmt.Println(s.Dequeue())
+	fmt.Println(s.Dequeue())
+	fmt.Println(s.Dequeue())
 }
