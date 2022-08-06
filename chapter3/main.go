@@ -1,21 +1,22 @@
 package main
 
 import (
-	"DSandALGS/chapter3/dll"
+	"DSandALGS/JunminLeeCourse/DataStructures/heaps"
 	"fmt"
 )
 
 func main() {
+	m := &heaps.MaxHeap{}
+	fmt.Println(m)
+	buildHeap := []int{10, 20, 30, 5, 7, 9, 11, 13, 15, 17}
 
-	linkedList := dll.DoublyLinkedList{}
+	for _, v := range buildHeap {
+		m.Insert(v)
+		fmt.Println(m)
+	}
 
-	linkedList.AddToHead(1)
-	linkedList.AddToHead(3)
-	linkedList.AddToEnd(5)
-	linkedList.AddAfter(1, 7)
-	fmt.Println(linkedList.HeadNode.Property)
-
-	node := linkedList.NodeBetweenValues(1, 5)
-
-	fmt.Println(node.Property)
+	for i := 0; i < 5; i++ {
+		m.Extract()
+		fmt.Println(m)
+	}
 }
