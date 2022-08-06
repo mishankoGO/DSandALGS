@@ -1,22 +1,19 @@
 package main
 
 import (
-	"DSandALGS/JunminLeeCourse/DataStructures/heaps"
+	"DSandALGS/JunminLeeCourse/DataStructures/linkedLists"
 	"fmt"
 )
 
 func main() {
-	m := &heaps.MaxHeap{}
-	fmt.Println(m)
-	buildHeap := []int{10, 20, 30, 5, 7, 9, 11, 13, 15, 17}
+	mylist := linkedLists.LinkedList{}
+	node1 := &linkedLists.Node{Data: 48}
+	node2 := &linkedLists.Node{Data: 18}
+	node3 := &linkedLists.Node{Data: 68}
 
-	for _, v := range buildHeap {
-		m.Insert(v)
-		fmt.Println(m)
-	}
+	mylist.Prepend(node1)
+	mylist.Prepend(node2)
+	mylist.Prepend(node3)
 
-	for i := 0; i < 5; i++ {
-		m.Extract()
-		fmt.Println(m)
-	}
+	fmt.Println(mylist)
 }
