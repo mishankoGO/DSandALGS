@@ -1,20 +1,23 @@
 package main
 
 import (
-	"DSandALGS/JunminLeeCourse/DataStructures/queues"
+	"DSandALGS/JunminLeeCourse/DataStructures/binarySearchTrees"
 	"fmt"
 )
 
 func main() {
-	s := queues.Queue{}
-	fmt.Println(s)
+	tree := &binarySearchTrees.Node{Key: 100}
+	tree.Insert(200)
+	tree.Insert(300)
+	fmt.Println(tree)
 
-	s.Enqueue(12)
-	s.Enqueue(20)
-	s.Enqueue(18)
-	fmt.Println(s)
+	tree.Insert(52)
+	tree.Insert(34)
+	tree.Insert(76)
+	tree.Insert(12)
+	tree.Insert(1)
+	tree.Insert(90)
 
-	fmt.Println(s.Dequeue())
-	fmt.Println(s.Dequeue())
-	fmt.Println(s.Dequeue())
+	fmt.Println(tree.Search(200))
+	fmt.Println(binarySearchTrees.Count)
 }
