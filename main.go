@@ -1,22 +1,25 @@
 package main
 
 import (
-	"DSandALGS/chapter3/dll"
+	"DSandALGS/chapter3/cll"
 	"fmt"
 )
 
 func main() {
-	var a dll.DoublyLinkedList
-	a.AddToHead(1)
-	a.AddToEnd(2)
-	a.AddToEnd(4)
-	a.AddAfter(2, 3)
-
-	fmt.Println("before deletion")
+	var a cll.CircularLinkedList
+	a.AddToHead(2)
+	a.AddToHead(3)
+	a.AddToHead(4)
+	a.AddToHead(5)
+	fmt.Println(a.CircularListLength())
 	a.IterateList()
-
-	a.Delete(3)
-
+	a.AddToEnd(1)
+	fmt.Println(a.CircularListLength())
+	a.IterateList()
+	a.DeleteLast()
+	fmt.Println("after deletion")
+	a.IterateList()
+	a.DeleteHead()
 	fmt.Println("after deletion")
 	a.IterateList()
 }
