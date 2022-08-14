@@ -74,3 +74,19 @@ func (linkedList *LinkedList) AddAfter(nodeProperty, property int) {
 		nodeWith.NextNode = node
 	}
 }
+
+// Delete method
+func (linkedList *LinkedList) Delete(nodeProperty int) {
+	if linkedList.HeadNode.Property == nodeProperty {
+		linkedList.HeadNode = linkedList.HeadNode.NextNode
+	}
+
+	previousToDelete := linkedList.HeadNode
+	for previousToDelete.NextNode.Property != nodeProperty {
+		if previousToDelete.NextNode.NextNode == nil {
+			return
+		}
+		previousToDelete = linkedList.HeadNode.NextNode
+	}
+	previousToDelete.NextNode = previousToDelete.NextNode.NextNode
+}
