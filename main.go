@@ -1,15 +1,16 @@
 package main
 
 import (
-	"DSandALGS/chapter3/ll"
+	"DSandALGS/chapter3/dll"
 	"fmt"
 )
 
 func main() {
-	var a ll.LinkedList
+	var a dll.DoublyLinkedList
 	a.AddToHead(1)
 	a.AddToEnd(2)
-	a.AddToEnd(3)
+	a.AddToEnd(4)
+	a.AddAfter(2, 3)
 
 	fmt.Println("before deletion")
 	a.IterateList()
@@ -18,10 +19,4 @@ func main() {
 
 	fmt.Println("after deletion")
 	a.IterateList()
-
-	a.DeleteLinkedList()
-
-	fmt.Println("after full deletion")
-	fmt.Println(a)
-
 }
