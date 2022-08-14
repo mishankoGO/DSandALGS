@@ -90,3 +90,15 @@ func (linkedList *LinkedList) Delete(nodeProperty int) {
 	}
 	previousToDelete.NextNode = previousToDelete.NextNode.NextNode
 }
+
+// DeleteLinkedList method
+func (linkedList *LinkedList) DeleteLinkedList() {
+	var auxilaryNode, iterator Node // create temporary node for storing next node of iterator
+	iterator = *linkedList.HeadNode
+	for iterator.NextNode != nil {
+		auxilaryNode = *iterator.NextNode
+		iterator.NextNode = nil
+		iterator = auxilaryNode
+	}
+	linkedList.HeadNode = nil
+}
