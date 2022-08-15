@@ -7,7 +7,7 @@ import (
 // Node class
 type Node struct {
 	property int
-	nextNode *Node
+	NextNode *Node
 }
 
 // CircularLinkedList class
@@ -16,16 +16,16 @@ type CircularLinkedList struct {
 }
 
 // CircularListLength method
-func (linkedLists *CircularLinkedList) CircularListLength() int {
-	var current = linkedLists.HeadNode
+func (linkedList *CircularLinkedList) CircularListLength() int {
+	var current = linkedList.HeadNode
 	var count int
-	if linkedLists.HeadNode == nil {
+	if linkedList.HeadNode == nil {
 		return 0
 	}
 	for {
-		current = current.nextNode
+		current = current.NextNode
 		count++
-		if current == linkedLists.HeadNode {
+		if current == linkedList.HeadNode {
 			break
 		}
 	}
@@ -40,7 +40,7 @@ func (linkedList *CircularLinkedList) IterateList() {
 	var current = linkedList.HeadNode
 	for {
 		fmt.Println(current)
-		current = current.nextNode
+		current = current.NextNode
 		if current == linkedList.HeadNode {
 			return
 		}
@@ -52,11 +52,11 @@ func (linkedList *CircularLinkedList) AddToHead(property int) {
 	var node Node
 	node.property = property
 	if linkedList.HeadNode == nil {
-		node.nextNode = &node
+		node.NextNode = &node
 	} else {
 		lastNode := linkedList.LastNode()
-		node.nextNode = linkedList.HeadNode
-		lastNode.nextNode = &node
+		node.NextNode = linkedList.HeadNode
+		lastNode.NextNode = &node
 	}
 	linkedList.HeadNode = &node
 }
@@ -65,10 +65,10 @@ func (linkedList *CircularLinkedList) AddToHead(property int) {
 func (linkedList *CircularLinkedList) AddToEnd(property int) {
 	var node Node
 	node.property = property
-	node.nextNode = linkedList.HeadNode
+	node.NextNode = linkedList.HeadNode
 
 	lastNode := linkedList.LastNode()
-	lastNode.nextNode = &node
+	lastNode.NextNode = &node
 }
 
 // LastNode method
@@ -79,8 +79,8 @@ func (linkedList *CircularLinkedList) LastNode() *Node {
 	}
 	var current = linkedList.HeadNode
 	for {
-		current = current.nextNode
-		if current.nextNode == linkedList.HeadNode {
+		current = current.NextNode
+		if current.NextNode == linkedList.HeadNode {
 			lastNode = current
 			break
 		}
@@ -90,16 +90,16 @@ func (linkedList *CircularLinkedList) LastNode() *Node {
 }
 
 // DeleteLast method
-func (linkedLists *CircularLinkedList) DeleteLast() {
-	lastNode := linkedLists.LastNode()
-	previousToDelete := linkedLists.HeadNode
+func (linkedList *CircularLinkedList) DeleteLast() {
+	lastNode := linkedList.LastNode()
+	previousToDelete := linkedList.HeadNode
 	for {
-		if previousToDelete.nextNode == lastNode {
-			previousToDelete.nextNode = linkedLists.HeadNode
-			lastNode.nextNode = lastNode
+		if previousToDelete.NextNode == lastNode {
+			previousToDelete.NextNode = linkedList.HeadNode
+			lastNode.NextNode = lastNode
 			return
 		}
-		previousToDelete = previousToDelete.nextNode
+		previousToDelete = previousToDelete.NextNode
 	}
 }
 
@@ -107,6 +107,6 @@ func (linkedLists *CircularLinkedList) DeleteLast() {
 func (linkedList *CircularLinkedList) DeleteHead() {
 	//var auxNode = linkedList.HeadNode
 	lastNode := linkedList.LastNode()
-	lastNode.nextNode = linkedList.HeadNode.nextNode
-	linkedList.HeadNode = linkedList.HeadNode.nextNode
+	lastNode.NextNode = linkedList.HeadNode.NextNode
+	linkedList.HeadNode = linkedList.HeadNode.NextNode
 }
