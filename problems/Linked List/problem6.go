@@ -7,7 +7,7 @@ import (
 )
 
 /* Check whether the given list is either NULL-terminated or ends in a cycle */
-// Time: O(n), Space: O(1)
+// Time: O(n), Space: O(n)
 
 func NullOrCyclic(linkedList ll.LinkedList) string {
 	pointersMap := make(map[*ll.Node]bool)
