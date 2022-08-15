@@ -5,29 +5,23 @@ import (
 	"fmt"
 )
 
-/* Find n-th node from the end of a Linked List */
-// Time: O(n), Space: O(1)
-func FindNthFromEnd(linkedList *ll.LinkedList, n int) int {
-	var count int
-	var res int
+/* Find n-th node from the end of a Linked List using hash table */
+// Time: O(n), Space: O(n)
+
+func FindNthFromEndHashTable(linkedList *ll.LinkedList, n int) int {
+
+	idxMap := make(map[int]*int)
+	count := 0
 	for node := linkedList.HeadNode; node != nil; node = node.NextNode {
+		idxMap[count] = &node.Property
 		count++
 	}
-	fmt.Println(count)
 	if n > count {
 		fmt.Println("Linked List is too short")
 		return -1
-	} else {
-		resIdx := count - n
-		var i int
-		for node := linkedList.HeadNode; i <= resIdx; node = node.NextNode {
-			if i == resIdx {
-				res = node.Property
-			}
-			i++
-		}
 	}
-	return res
+	resIdx := count - n
+	return *idxMap[resIdx]
 }
 
 func main() {
@@ -41,7 +35,7 @@ func main() {
 	linkedList.IterateList()
 	fmt.Println()
 
-	res := FindNthFromEnd(&linkedList, 6)
+	res := FindNthFromEndHashTable(&linkedList, 1)
 	fmt.Println(res)
 
 }
