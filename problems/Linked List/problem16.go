@@ -18,7 +18,6 @@ func reverseLinkedList(linkedList *ll.LinkedList) {
 		curr = next          // curr = curr.NextNode
 	}
 	linkedList.HeadNode = prev
-
 }
 
 func main() {
