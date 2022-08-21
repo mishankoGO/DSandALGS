@@ -2,6 +2,9 @@ package main
 
 import "DSandALGS/chapter3/ll"
 
+/* Insert a node in a sorted linked list */
+// Time: O(n), Space: O(1)
+
 func InsertIntoSortedList(linkedList *ll.LinkedList, i int) {
 	for node := linkedList.HeadNode; node.NextNode != nil; node = node.NextNode {
 		if linkedList.HeadNode.Property >= i {
