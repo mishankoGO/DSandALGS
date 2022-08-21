@@ -6,9 +6,9 @@ import (
 )
 
 /* Give an algorithm for finding the merging point (Stacks) */
-// Time: O(n), Space: O(min(n, m))
+// Time: O(n + m), Space: O(n + m)
 
-// Stack class
+// StackNode class
 type StackNode struct {
 	Items []*ll.Node
 }
