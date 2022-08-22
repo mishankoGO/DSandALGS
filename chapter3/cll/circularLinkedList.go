@@ -6,7 +6,7 @@ import (
 
 // Node class
 type Node struct {
-	property int
+	Property int
 	NextNode *Node
 }
 
@@ -39,7 +39,7 @@ func (linkedList *CircularLinkedList) IterateList() {
 	}
 	var current = linkedList.HeadNode
 	for {
-		fmt.Println(current)
+		fmt.Println(current.Property)
 		current = current.NextNode
 		if current == linkedList.HeadNode {
 			return
@@ -50,7 +50,7 @@ func (linkedList *CircularLinkedList) IterateList() {
 // AddToHead method
 func (linkedList *CircularLinkedList) AddToHead(property int) {
 	var node Node
-	node.property = property
+	node.Property = property
 	if linkedList.HeadNode == nil {
 		node.NextNode = &node
 	} else {
@@ -64,7 +64,7 @@ func (linkedList *CircularLinkedList) AddToHead(property int) {
 // AddToEnd method
 func (linkedList *CircularLinkedList) AddToEnd(property int) {
 	var node Node
-	node.property = property
+	node.Property = property
 	node.NextNode = linkedList.HeadNode
 
 	lastNode := linkedList.LastNode()
