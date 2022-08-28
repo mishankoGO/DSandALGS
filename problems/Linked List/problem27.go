@@ -8,7 +8,7 @@ import (
 /* Find the middle of linked list (Two Pointers) */
 // Time: O(n), Space: O(1)
 
-func findMiddleTwoPointers(linkedList ll.LinkedList) *ll.Node {
+func FindMiddleTwoPointers(linkedList ll.LinkedList) *ll.Node {
 	var p1, p2 = linkedList.HeadNode, linkedList.HeadNode
 	for p2 != nil {
 		if p2.NextNode != nil {
@@ -34,6 +34,6 @@ func main() {
 	linkedList.AddToEnd(8)
 	linkedList.AddToEnd(9)
 
-	fmt.Println(findMiddleTwoPointers(linkedList))
+	fmt.Println(FindMiddleTwoPointers(linkedList))
 
 }

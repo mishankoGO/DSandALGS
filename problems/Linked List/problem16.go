@@ -8,7 +8,7 @@ import (
 /* Reverse a singly linked list. */
 // Time: O(n), Space: O(1)
 
-func reverseLinkedList(linkedList *ll.LinkedList) {
+func ReverseLinkedList(linkedList *ll.LinkedList) {
 	var prev, next *ll.Node
 
 	for curr := linkedList.HeadNode; curr != nil; {
@@ -28,6 +28,6 @@ func main() {
 	linkedList.AddToEnd(1)
 	linkedList.IterateList()
 	fmt.Print("\n")
-	reverseLinkedList(&linkedList)
+	ReverseLinkedList(&linkedList)
 	linkedList.IterateList()
 }
