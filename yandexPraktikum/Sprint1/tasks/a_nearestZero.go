@@ -5,7 +5,9 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 	"strconv"
 	"strings"
 )
@@ -87,26 +89,42 @@ func nearestNeighbor(n int, values []string) string {
 
 func main() {
 
-	tests := make(map[string]string)
-	tests["0 1 4 9 0"] = "0 1 2 1 0"
-	tests["0 7 9 4 8 20"] = "0 1 2 3 4 5"
-	tests["0 1 2 3 0 1 2 0 1 2"] = "0 1 2 1 0 1 1 0 1 2"
-	tests["1 2 3 0 1 2 0 1 2 0"] = "3 2 1 0 1 1 0 1 1 0"
-	tests["1 2 3 0 1 2 3"] = "3 2 1 0 1 2 3"
-	tests["0 2 3 0 1 2 3"] = "0 1 1 0 1 2 3"
-	tests["0 0"] = "0 0"
-	tests["0 1 0"] = "0 1 0"
-	tests["1 1 1 1 1 0"] = "5 4 3 2 1 0"
+	//tests := make(map[string]string)
+	//tests["0 1 4 9 0"] = "0 1 2 1 0"
+	//tests["0 7 9 4 8 20"] = "0 1 2 3 4 5"
+	//tests["0 1 2 3 0 1 2 0 1 2"] = "0 1 2 1 0 1 1 0 1 2"
+	//tests["1 2 3 0 1 2 0 1 2 0"] = "3 2 1 0 1 1 0 1 1 0"
+	//tests["1 2 3 0 1 2 3"] = "3 2 1 0 1 2 3"
+	//tests["0 2 3 0 1 2 3"] = "0 1 1 0 1 2 3"
+	//tests["0 0"] = "0 0"
+	//tests["0 1 0"] = "0 1 0"
+	//tests["1 1 1 1 1 0"] = "5 4 3 2 1 0"
+	//tests["2 1 0 3 0 0 3 2 4"] = "2 1 0 1 0 0 1 2 3"
+	//tests["5 6 0 1 -2 3 4"] = "2 1 0 1 2 3 4"
+	//tests["2 1 0 3 0 0 3 2 4"] = "2 1 0 1 0 0 1 2 3"
+	//
+	//for k, v := range tests {
+	//	values := strings.Split(k, " ")
+	//	n := len(values)
+	//	ans := nearestNeighbor(n, values)
+	//	fmt.Println(ans)
+	//	if ans != v {
+	//		fmt.Printf("failed test %s\n", k)
+	//		fmt.Printf("expected %s, got %s\n", v, ans)
+	//		panic("tests don't pass")
+	//	}
+	//}
+	//fmt.Println("all tests passed!")
 
-	for k, v := range tests {
-		values := strings.Split(k, " ")
-		n := len(values)
-		ans := nearestNeighbor(n, values)
-		if ans != v {
-			fmt.Printf("failed test %s\n", k)
-			fmt.Printf("expected %s, got %s\n", v, ans)
-			panic("tests don't pass")
-		}
-	}
-	fmt.Println("all tests passed!")
+	var n int
+	fmt.Scan(&n)
+	reader := bufio.NewReader(os.Stdin)
+	scanner := bufio.NewScanner(reader)
+	scanner.Split(bufio.ScanLines)
+	scanner.Scan()
+
+	line := scanner.Text()
+	values := strings.Split(line, " ")
+	ans := nearestNeighbor(n, values)
+	fmt.Println(ans)
 }
