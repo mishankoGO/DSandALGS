@@ -1,0 +1,8 @@
+7
+getMax
+pop
+pop
+pop
+push 10
+getMax
+push -9
